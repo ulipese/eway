@@ -16,7 +16,7 @@ export const Form = ({ setMessages, setIsTyping, isTyping }) => {
     event.preventDefault();
 
     const userMessage = {
-      interactor: await user?.userName,
+      interactor: "Você",
       text: value,
     };
 

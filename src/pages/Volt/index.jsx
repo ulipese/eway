@@ -6,32 +6,27 @@ export const Volt = () => {
   const [messages, setMessages] = useState([
     { interactor: "VoltAI", text: "Olá, como posso te ajudar hoje? ⚡" },
   ]);
-  const [isTyping, setIsTyping] = useState(false); // State para o efeito de digitação da Volt
-  const [autoScroll, setAutoScroll] = useState(true); // Estado pra controlar se o scroll automático está ativado
+  const [isTyping, setIsTyping] = useState(false); 
+  const [autoScroll, setAutoScroll] = useState(true); 
 
-  const messagesEndRef = useRef(null); // Cria uma referência pro fim da lista de mensagens
-  const messagesContainerRef = useRef(null); // Referência pro container de mensagens
+  const messagesEndRef = useRef(null); 
+  const messagesContainerRef = useRef(null); 
 
-  // Função pra fazer o scroll até o fim da lista de mensagens
   const scrollToBottom = (behavior = "smooth") => {
     if (messagesEndRef.current && autoScroll) {
       messagesEndRef.current.scrollIntoView({ behavior });
     }
   };
-
-  // Função que detecta a interação do usuário com o scroll
+l
   const handleUserScroll = () => {
     const container = messagesContainerRef.current;
     if (container) {
-      // Se o usuário mover o scroll para cima...
       const isAtBottom =
         container.scrollHeight - container.scrollTop === container.clientHeight;
-      // Desativa o auto-scroll
       setAutoScroll(isAtBottom);
     }
   };
 
-  // Realiza o scroll para o fim da lista de mensagens sempre que a Volt Responder, se o auto-scroll estiver ativado
   useEffect(() => {
     scrollToBottom("instant");
   }, [messages]);
