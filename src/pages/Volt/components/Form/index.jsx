@@ -16,11 +16,11 @@ export const Form = ({ setMessages, setIsTyping, isTyping }) => {
     event.preventDefault();
 
     const userMessage = {
-      interactor: "Você",
+      interactor: user.userName,
       text: value,
     };
 
-    localStorage.setItem("name", await user?.userName);
+    localStorage.setItem("name", user.userName);
 
     // Adiciona a última mensagem do usuário ao histórico
     setMessages((prevValue) => [...prevValue, userMessage]);
