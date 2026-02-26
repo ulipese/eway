@@ -26,7 +26,7 @@ const historyChat = [
 export const callGeminiApi = async (prompt, user) => {
   const geminiToken = import.meta.env.VITE_GEMINI_TOKEN;
   const genAI = new GoogleGenerativeAI(geminiToken);
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
   const chat = model.startChat({
     history: historyChat,
